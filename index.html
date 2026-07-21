@@ -372,18 +372,18 @@
                     </a>
 
                     <a
-                      href="https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html"
+                      href="https://www.comptia.org/certifications/network"
                       target="_blank"
                       rel="noopener noreferrer"
                       class="cert-card"
-                      style="--cert-accent: 27, 160, 215"
+                      style="--cert-accent: 213, 0, 0"
                     >
                       <div class="cert-card-top">
                         <div class="cert-logo-tile">
                           <img
-                            src="logos/white-cisco-logo.png"
-                            alt="Cisco Logo"
-                            class="cert-logo-image cert-logo-image--cisco"
+                            src="https://cdn.simpleicons.org/comptia/white"
+                            alt="CompTIA Logo"
+                            class="cert-logo-image cert-logo-image--comptia"
                           />
                         </div>
                         <span class="cert-card-arrow" aria-hidden="true"
@@ -392,8 +392,8 @@
                       </div>
 
                       <div class="cert-card-body">
-                        <h3 class="cert-card-title">CCNA</h3>
-                        <p class="cert-card-meta">Expected June 2026</p>
+                        <h3 class="cert-card-title">Network+</h3>
+                        <p class="cert-card-meta">Expected August 2026</p>
                       </div>
 
                       <div class="cert-card-bottom">
@@ -477,15 +477,21 @@
                 <div
                   class="project-card bg-gray-800/70 p-4 rounded-lg hover:scale-[1.02] transition-transform flex flex-col h-full"
                 >
+                  <span
+                    class="favorite-star"
+                    aria-hidden="true"
+                    title="Favorite"
+                    >★</span
+                  >
                   <a
-                    href="https://github.com/DanielSon721/Auto-Messenger"
+                    href="https://www.rocketleaguevision.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="block flex-grow"
                   >
-                    <h3 class="text-xl font-bold mb-2">Auto Messenger</h3>
+                    <h3 class="text-xl font-bold mb-2">Rocket League Vision</h3>
                     <p class="text-gray-400 mb-3 min-h-[4.5rem]">
-                      Messaging system for fraternity financial communications
+                      Gameplay analysis platform for the video game Rocket League
                     </p>
                     <div class="mt-auto">
                       <span
@@ -494,11 +500,15 @@
                       >
                       <span
                         class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >pandas</span
+                        >Rust</span
                       >
                       <span
                         class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >Google Sheets API</span
+                        >AWS</span
+                      >
+                      <span
+                        class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >Claude Code</span
                       >
                     </div>
                   </a>
@@ -1019,72 +1029,130 @@
 
           <br />
 
-          <!-- Experience Section (disabled)
+          <!-- Experience Section -->
           <div class="mt-20">
             <h2 class="text-3xl font-bold mb-8 text-center">
               📂 Experience & Leadership
             </h2>
 
-            <div class="max-w-4xl relative flex ml-[20%]">
-              <div class="relative w-28">
-                <div
-                  class="absolute left-[-12px] top-0 bottom-0 flex flex-col justify-between text-gray-500"
-                >
-                  <span>Jan 2024</span>
-                  <span>Jan 2025</span>
-                  <span>Jan 2026</span>
-                </div>
-
-                <div
-                  class="absolute left-20 top-0 bottom-0 w-2 bg-gray-300 rounded-full"
-                ></div>
-              </div>
-
-              <div class="relative flex-1 ml-14" style="height: 500px">
-                <div
-                  class="absolute w-2 bg-green-500 rounded-full"
-                  style="top: 42%; height: 58%; left: 0"
-                ></div>
-
-                <div class="absolute" style="top: 42%; left: 16px">
-                  <h3 class="text-xl font-semibold text-green-500">
-                    Treasurer – Sigma Phi Delta Fraternity
-                  </h3>
-                  <p class="text-sm text-gray-500 mt-1">Nov 2024 – Present</p>
-                  <p class="text-sm text-gray-400 mt-2">
-                    Managed dues collection, budgeting, accounting, and roster
+            <div class="xp-timeline">
+              <!-- Treasurer -->
+              <div class="xp-entry" style="--accent: #facc15">
+                <span class="xp-node"></span>
+                <div class="xp-card">
+                  <div class="xp-head">
+                    <span class="xp-logo xp-logo-crest">
+                      <img
+                        src="logos/sigmaphidelta.svg"
+                        alt="Sigma Phi Delta Fraternity crest"
+                      />
+                    </span>
+                    <div class="xp-headtext">
+                      <h3 class="xp-role">Treasurer</h3>
+                      <p class="xp-org">Sigma Phi Delta Fraternity</p>
+                    </div>
+                    <span class="xp-date">Nov 2024 – Dec 2025</span>
+                  </div>
+                  <p class="xp-meta">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    College Park, Maryland
+                  </p>
+                  <p class="xp-desc">
+                    Collected dues, allocated budgets, issued reimbursements,
+                    and audited transactions.
                   </p>
                 </div>
+              </div>
 
-                <div
-                  class="absolute w-2 bg-blue-500 rounded-full"
-                  style="top: 83%; height: 17%; left: 30px"
-                ></div>
+              <!-- DevOps Engineer -->
+              <div class="xp-entry" style="--accent: #ef4444">
+                <span class="xp-node"></span>
+                <div class="xp-card">
+                  <div class="xp-head">
+                    <span class="xp-logo xp-logo-cnh">
+                      <img
+                        src="logos/childrensnationalhospital.png"
+                        alt="Children's National Hospital logo"
+                      />
+                    </span>
+                    <div class="xp-headtext">
+                      <h3 class="xp-role">DevOps Engineer</h3>
+                      <p class="xp-org">Children's National Hospital</p>
+                    </div>
+                    <span class="xp-date">Sep 2025 – Dec 2025</span>
+                  </div>
+                  <p class="xp-meta">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Washington, D.C.
+                  </p>
+                  <p class="xp-desc">
+                    Containerized a Flask + React MRI analysis platform and
+                    constructed CI/CD pipelines.
+                  </p>
+                </div>
+              </div>
 
-                <div class="absolute" style="top: 83%; left: 56px">
-                  <h3 class="text-xl font-semibold text-blue-500">
-                    DevOps Engineer – App Dev Club
-                  </h3>
-                  <p class="text-sm text-gray-500 mt-1">Sep 2025 – Present</p>
-                  <p class="text-sm text-gray-400 mt-2">
-                    Containerized a full stack web application and automated
-                    CI/CD pipelines
+              <!-- Cybersecurity Analyst (current) -->
+              <div class="xp-entry is-current" style="--accent: #b9a3e3">
+                <span class="xp-node"></span>
+                <div class="xp-card">
+                  <div class="xp-head">
+                    <span class="xp-logo">
+                      <img src="logos/somos.webp" alt="Somos, Inc. logo" />
+                    </span>
+                    <div class="xp-headtext">
+                      <h3 class="xp-role">Cybersecurity Analyst</h3>
+                      <p class="xp-org">Somos, Inc.</p>
+                    </div>
+                    <span class="xp-date">
+                      <span class="xp-live"></span>Jun 2026 – Present
+                    </span>
+                  </div>
+                  <p class="xp-meta">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Westford, Massachusetts · Hybrid
+                  </p>
+                  <p class="xp-desc">
+                    Remediated vulnerabilities, triaged alerts, and updated
+                    security documentation.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          -->
 
           <!-- LeetCode Analytics Section -->
           <div class="mt-20">
             <h2 class="text-3xl font-bold mb-8 text-center">
               📊 LeetCode Analytics
             </h2>
-
-            <h3 class="text-xl font-bold mb-4 text-center">
-              I'm trying to complete one LeetCode problem per day for 2026!
-            </h3>
 
             <br />
 
@@ -1149,6 +1217,14 @@
                   </div>
                 </div>
               </div>
+
+              <p
+                id="lc-status"
+                class="mt-6 text-center text-sm text-gray-400"
+                aria-live="polite"
+              >
+                Loading live stats...
+              </p>
             </div>
           </div>
 

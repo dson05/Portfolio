@@ -196,39 +196,148 @@ document.addEventListener('DOMContentLoaded', function() {
  ************************************/
 
 const leetUsername = "DanielSon721";
+const leetCodeProfileUrl = `https://leetcode.com/u/${encodeURIComponent(leetUsername)}/`;
+const leetCodeApiEndpoints = [
+  `https://leetcode-api-faisalshohag.vercel.app/${encodeURIComponent(leetUsername)}`,
+];
+
+function getLeetCodeElements() {
+  return {
+    totalSolved: document.getElementById("lc-total-solved"),
+    easyLabel: document.getElementById("lc-easy-label"),
+    mediumLabel: document.getElementById("lc-medium-label"),
+    hardLabel: document.getElementById("lc-hard-label"),
+    easyBar: document.getElementById("lc-easy-bar"),
+    mediumBar: document.getElementById("lc-medium-bar"),
+    hardBar: document.getElementById("lc-hard-bar"),
+    status: document.getElementById("lc-status"),
+  };
+}
+
+function hasLeetCodeWidget(elements) {
+  return Object.values(elements).every(Boolean);
+}
+
+function setLeetCodeStatus(elements, message, isError = false) {
+  if (!elements.status) return;
+  elements.status.className = `mt-6 text-center text-sm ${isError ? "text-red-300" : "text-gray-400"}`;
+  elements.status.innerHTML = message;
+}
+
+function normalizeLeetCodeStats(data) {
+  if (!data) return null;
+
+  const stats = {
+    totalSolved: Number(data.totalSolved),
+    easySolved: Number(data.easySolved),
+    totalEasy: Number(data.totalEasy),
+    mediumSolved: Number(data.mediumSolved),
+    totalMedium: Number(data.totalMedium),
+    hardSolved: Number(data.hardSolved),
+    totalHard: Number(data.totalHard),
+  };
+
+  if (Object.values(stats).some((value) => !Number.isFinite(value))) {
+    return null;
+  }
+
+  return stats;
+}
+
+function setLeetCodeBarWidth(bar, solved, total) {
+  const percentage = total > 0 ? Math.min(100, (solved / total) * 100) : 0;
+  bar.style.width = `${percentage}%`;
+}
+
+function renderLeetCodeStats(elements, stats) {
+  elements.totalSolved.innerText = stats.totalSolved;
+  elements.easyLabel.innerText = `${stats.easySolved} / ${stats.totalEasy}`;
+  elements.mediumLabel.innerText = `${stats.mediumSolved} / ${stats.totalMedium}`;
+  elements.hardLabel.innerText = `${stats.hardSolved} / ${stats.totalHard}`;
+
+  setLeetCodeBarWidth(elements.easyBar, stats.easySolved, stats.totalEasy);
+  setLeetCodeBarWidth(elements.mediumBar, stats.mediumSolved, stats.totalMedium);
+  setLeetCodeBarWidth(elements.hardBar, stats.hardSolved, stats.totalHard);
+
+  setLeetCodeStatus(
+    elements,
+    `Live stats from public LeetCode data. <a href="${leetCodeProfileUrl}" class="text-green-300 underline underline-offset-2" target="_blank" rel="noopener noreferrer">View profile</a>.`,
+  );
+}
+
+function renderLeetCodeFallback(elements) {
+  elements.totalSolved.innerText = "--";
+  elements.easyLabel.innerText = "--";
+  elements.mediumLabel.innerText = "--";
+  elements.hardLabel.innerText = "--";
+
+  setLeetCodeBarWidth(elements.easyBar, 0, 1);
+  setLeetCodeBarWidth(elements.mediumBar, 0, 1);
+  setLeetCodeBarWidth(elements.hardBar, 0, 1);
+
+  setLeetCodeStatus(
+    elements,
+    `Live LeetCode stats are temporarily unavailable. <a href="${leetCodeProfileUrl}" class="text-green-300 underline underline-offset-2" target="_blank" rel="noopener noreferrer">View profile</a>.`,
+    true,
+  );
+}
+
+async function fetchJsonWithTimeout(url, timeoutMs = 8000) {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, {
+      headers: {
+        Accept: "application/json",
+      },
+      signal: controller.signal,
+    });
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+}
+
+async function fetchLeetCodeStats() {
+  let lastError = new Error("Unable to fetch LeetCode stats.");
+
+  for (const endpoint of leetCodeApiEndpoints) {
+    try {
+      const res = await fetchJsonWithTimeout(endpoint);
+
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
+
+      const data = await res.json();
+      const stats = normalizeLeetCodeStats(data);
+
+      if (!stats) {
+        throw new Error("Unexpected LeetCode response payload.");
+      }
+
+      return stats;
+    } catch (err) {
+      lastError = err;
+    }
+  }
+
+  throw lastError;
+}
 
 async function loadLeetCodeStats() {
+  const elements = getLeetCodeElements();
+
+  if (!hasLeetCodeWidget(elements)) {
+    return;
+  }
+
   try {
-    const res = await fetch(`https://leetcode-stats-api.herokuapp.com/${leetUsername}`);
-    const data = await res.json();
-
-    if (!data || !data.totalSolved) return;
-
-    // Main stat
-    document.getElementById("lc-total-solved").innerText = data.totalSolved;
-
-    // Labels
-    document.getElementById("lc-easy-label").innerText =
-      `${data.easySolved} / ${data.totalEasy}`;
-
-    document.getElementById("lc-medium-label").innerText =
-      `${data.mediumSolved} / ${data.totalMedium}`;
-
-    document.getElementById("lc-hard-label").innerText =
-      `${data.hardSolved} / ${data.totalHard}`;
-
-    // Bars
-    document.getElementById("lc-easy-bar").style.width =
-      `${(data.easySolved / data.totalEasy) * 100}%`;
-
-    document.getElementById("lc-medium-bar").style.width =
-      `${(data.mediumSolved / data.totalMedium) * 100}%`;
-
-    document.getElementById("lc-hard-bar").style.width =
-      `${(data.hardSolved / data.totalHard) * 100}%`;
-
+    const stats = await fetchLeetCodeStats();
+    renderLeetCodeStats(elements, stats);
   } catch (err) {
     console.log("LeetCode API error", err);
+    renderLeetCodeFallback(elements);
   }
 }
 

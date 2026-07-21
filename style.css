@@ -249,6 +249,233 @@ html, body {
   transition-delay: 0.08s;
 }
 
+/* ===== EXPERIENCE TIMELINE ===== */
+.xp-timeline {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding-left: 3.25rem;
+}
+
+/* vertical spine */
+.xp-timeline::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(57, 255, 20, 0) 0%,
+    rgba(57, 255, 20, 0.4) 9%,
+    rgba(57, 255, 20, 0.4) 91%,
+    rgba(57, 255, 20, 0) 100%
+  );
+  border-radius: 999px;
+}
+
+.xp-entry {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.xp-entry:last-child {
+  margin-bottom: 0;
+}
+
+/* node dot on the spine */
+.xp-node {
+  position: absolute;
+  left: -3.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+.xp-node::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid var(--accent);
+  background: #000;
+  box-shadow: 0 0 14px -3px var(--accent);
+}
+.xp-node::after {
+  content: "";
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 8px -1px var(--accent);
+}
+
+/* live pulse for the current role */
+.xp-entry.is-current .xp-node::after {
+  animation: xpPulse 2.2s ease-out infinite;
+}
+@keyframes xpPulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* the card */
+.xp-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  padding: 1.05rem 1.25rem;
+  background:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--accent) 15%, transparent),
+      transparent 42%
+    ),
+    linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.94));
+  border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+/* accent rail on the card's left edge */
+.xp-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  opacity: 0.85;
+}
+.xp-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.xp-logo {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 0.55rem;
+  padding: 0.35rem 0.5rem;
+  width: 92px;
+  height: 44px;
+}
+.xp-logo img {
+  height: 28px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+/* emblem/landscape logos read better a touch larger than the wordmarks */
+.xp-logo.xp-logo-crest img {
+  height: 38px;
+}
+.xp-logo.xp-logo-cnh img {
+  height: 41px;
+}
+
+.xp-headtext {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.xp-role {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--accent);
+}
+.xp-org {
+  margin: 0.12rem 0 0;
+  font-size: 0.88rem;
+  color: #e5e7eb;
+}
+
+.xp-date {
+  flex-shrink: 0;
+  margin-left: auto;
+  align-self: flex-start;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: color-mix(in srgb, var(--accent) 82%, white);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.28rem 0.62rem;
+  white-space: nowrap;
+}
+.xp-date .xp-live {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  margin-right: 0.35rem;
+  vertical-align: middle;
+  animation: xpBlink 1.6s ease-in-out infinite;
+}
+@keyframes xpBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.xp-desc {
+  margin: 0.8rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #9ca3af;
+}
+.xp-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+.xp-meta svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  stroke: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .xp-timeline {
+    padding-left: 2.5rem;
+  }
+  .xp-node {
+    left: -2.5rem;
+  }
+  .xp-date {
+    margin-left: 0;
+    margin-top: 0.1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xp-entry.is-current .xp-node::after,
+  .xp-date .xp-live {
+    animation: none;
+  }
+}
+
 /* Force Tailwind Overrides */
 .container-override {
   max-width: var(--content-width) !important;
