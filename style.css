@@ -702,6 +702,13 @@ canvas {
   line-height: 1.85;
 }
 
+.rlvision-user-count {
+  color: var(--rlvision-accent);
+  font-weight: 700;
+  text-shadow: 0 0 14px rgba(182, 255, 134, 0.25);
+  white-space: nowrap;
+}
+
 .rlvision-stack {
   display: flex;
   flex-wrap: wrap;
@@ -784,12 +791,24 @@ canvas {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  justify-content: flex-start;
+  gap: 0.65rem;
   color: #a7bfb0;
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.rlvision-logo {
+  display: block;
+  flex-shrink: 0;
+  width: clamp(3.6rem, 6vw, 4.8rem);
+  height: clamp(2.2rem, 3.6vw, 2.9rem);
+  object-fit: cover;
+  object-position: center 45%;
+  /* Blend the original white background into the dark panel. */
+  filter: invert(1);
+  mix-blend-mode: screen;
 }
 
 .rlvision-monogram {
@@ -804,7 +823,7 @@ canvas {
   color: var(--rlvision-accent);
 }
 
-.rlvision-visual img {
+.rlvision-visual .rlvision-art-source img {
   display: block;
   width: 100%;
   height: auto;
