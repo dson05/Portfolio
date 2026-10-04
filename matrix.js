@@ -73,67 +73,48 @@ function showCopiedMessage(message) {
   }, 2000);
 }
 
-// Scroll header behavior
+// Reveal the header on scroll or keyboard focus, then keep it visible.
 document.addEventListener("DOMContentLoaded", () => {
   const scrollHeader = document.getElementById("scroll-header");
   if (scrollHeader) {
-    const SCROLL_SHOW_Y = 60;   // show earlier on scroll
-    const HOVER_ZONE_Y = 48;    // px from top that triggers reveal
-    let hoverHideTimeout;
-    let isPointerInHeader = false;
-    let navActive = false;
-
-    const setNavActive = (active) => {
-      navActive = active;
-      scrollHeader.classList.toggle("nav-active", active);
-    };
-
     const showHeader = () => {
-      clearTimeout(hoverHideTimeout);
       scrollHeader.classList.add("visible");
+      window.removeEventListener("scroll", revealOnScroll);
+      scrollHeader.removeEventListener("focusin", showHeader);
     };
 
-    const hideHeader = () => {
-      scrollHeader.classList.remove("visible");
-    };
-
-    const updateForScroll = () => {
-      if (window.scrollY > SCROLL_SHOW_Y) {
+    const revealOnScroll = () => {
+      if (window.scrollY > 0) {
         showHeader();
-        setNavActive(false);
-      } else if (!isPointerInHeader) {
-        hideHeader();
-        setNavActive(false);
       }
     };
 
-    const handleMouseMove = (e) => {
-      const rect = scrollHeader.getBoundingClientRect();
-      const inHeaderBounds = e.clientY >= rect.top && e.clientY <= rect.bottom;
-      const nearTop = e.clientY <= HOVER_ZONE_Y;
-      isPointerInHeader = inHeaderBounds;
+    window.addEventListener("scroll", revealOnScroll, { passive: true });
+    scrollHeader.addEventListener("focusin", showHeader);
+    revealOnScroll();
+  }
 
-      if (nearTop || inHeaderBounds) {
-        showHeader();
-        setNavActive(true);
-      } else if (window.scrollY <= SCROLL_SHOW_Y) {
-        clearTimeout(hoverHideTimeout);
-        hoverHideTimeout = setTimeout(() => {
-          if (window.scrollY <= SCROLL_SHOW_Y && !isPointerInHeader) {
-            hideHeader();
-            setNavActive(false);
-          }
-        }, 0);
-      } else {
-        setNavActive(false);
+  const scrollHint = document.getElementById("scroll-hint");
+  if (scrollHint && window.scrollY === 0) {
+    const hintTimeout = setTimeout(() => {
+      if (window.scrollY === 0) {
+        scrollHint.hidden = false;
+        // Establish the transparent state before starting the fade-in.
+        scrollHint.getBoundingClientRect();
+        scrollHint.classList.add("is-visible");
       }
+    }, 4000);
+
+    const dismissScrollHint = () => {
+      if (window.scrollY <= 0) return;
+      clearTimeout(hintTimeout);
+      scrollHint.classList.remove("is-visible");
+      scrollHint.classList.add("is-dismissed");
+      scrollHint.inert = true;
+      window.removeEventListener("scroll", dismissScrollHint);
     };
 
-    // Initial state
-    updateForScroll();
-
-    window.addEventListener("scroll", updateForScroll);
-    document.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", dismissScrollHint, { passive: true });
   }
 
   // PDF viewer handling for writing.html
@@ -188,7 +169,9 @@ function filterCourses(category) {
 
 // Initialize with cs courses showing
 document.addEventListener('DOMContentLoaded', function() {
-  filterCourses('cs');
+  if (document.getElementById('cs-btn')) {
+    filterCourses('cs');
+  }
 });
 
 /************************************

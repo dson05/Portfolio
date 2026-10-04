@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rocket League Vision, Daniel Son's flagship gameplay analysis project: playstyle insights, pro comparisons, and 3D replay review." />
+    <title>Daniel Son - Rocket League Vision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css?v=plain-nav" />
+  </head>
+  <body class="rlvision-page">
+    <header id="scroll-header" class="matrix-header">
+      <div class="matrix-scanline"></div>
+      <nav class="matrix-nav">
+        <a href="index.html" class="matrix-link">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 11l9-7 9 7" />
+              <path d="M5 11v9h5v-5h4v5h5v-9" />
+            </svg>
+          </span>
+          <span class="link-text">Home</span>
+        </a>
+        <a href="aboutme.html" class="matrix-link">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M5 20c0-3.3 3-6 7-6s7 2.7 7 6" />
+            </svg>
+          </span>
+          <span class="link-text">About Me</span>
+        </a>
+        <a href="writing.html" class="matrix-link">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 21l2.5-7.5 9-9 4.5 4.5-9 9Z" />
+              <path d="M12 5.5l4.5 4.5" />
+              <path d="M3 21l4.5-1.5" />
+            </svg>
+          </span>
+          <span class="link-text">Writing</span>
+        </a>
+        <a href="projects.html" class="matrix-link">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M10 3v4l-4 9a5 5 0 0 0 4.6 7h2.8A5 5 0 0 0 18 16l-4-9V3"
+              />
+              <path d="M8 13h8" />
+            </svg>
+          </span>
+          <span class="link-text">Projects</span>
+        </a>
+        <a href="rlvision.html" class="matrix-link" title="Rocket League Vision" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8" />
+              <path d="m12 7 4.8 3.5-1.8 5.6H9l-1.8-5.6L12 7Z" />
+              <path d="M12 4v3m7.6 2.5-2.8 1M16.7 18.5l-1.7-2.4m-6 0-1.7 2.4M4.4 9.5l2.8 1" />
+            </svg>
+          </span>
+          <span class="link-text">RLVision</span>
+        </a>
+      </nav>
+      <a href="index.html" class="matrix-glow">Daniel Son</a>
+    </header>
+
+    <canvas id="canvas" aria-hidden="true"></canvas>
+
+    <main class="content-wrapper rlvision-page-content">
+      <!-- Flagship project -->
+      <section
+        id="rocket-league-vision"
+        class="rlvision-feature"
+        aria-labelledby="rlvision-title"
+      >
+        <div class="rlvision-topline">
+          <p class="rlvision-eyebrow">RLVision<span>/</span> My magnum opus</p>
+        </div>
+        <div class="rlvision-main">
+          <div class="rlvision-copy">
+            <h1 id="rlvision-title">Rocket League <span>Vision</span></h1>
+            <p class="rlvision-description">
+              My most ambitious project to date:
+              a platform that uses machine learning to break down performance, detect mistakes, and identify mechanics,
+              helping players understand what to work on next. It has reached over 1,000 users!
+            </p>
+            <ul class="rlvision-stack" aria-label="Project technologies">
+              <li>Python</li>
+              <li>Rust</li>
+              <li>AWS</li>
+              <li>Claude Code</li>
+              <li>Codex
+              </li>
+            </ul>
+            <div class="rlvision-actions">
+              <a
+                class="rlvision-launch"
+                href="https://www.rocketleaguevision.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Launch RLVision <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="rlvision-visual" aria-hidden="true">
+            <div class="rlvision-visual-heading">
+              <span class="rlvision-monogram">RL<span>Vision</span></span>
+            </div>
+            <picture class="rlvision-art-source">
+              <source media="(prefers-reduced-motion: reduce)" srcset="logos/rlvision-arena-static.svg" />
+              <img
+                src="logos/rlvision-arena.svg"
+                alt=""
+                width="640"
+                height="440"
+                decoding="async"
+              />
+            </picture>
+            <div class="rlvision-visual-caption">
+              <span>Replays</span><span>→</span><span>Insights</span><span>→</span><span>Improvement</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rlvision-work" aria-labelledby="rlvision-work-title">
+        <header class="rlvision-work-heading">
+          <h2 id="rlvision-work-title">How I Built RLVision</h2>
+        </header>
+        <section class="rlvision-work-section">
+          <h3>Backend / Python</h3>
+          <ul>
+            <li>Built and deployed a Flask app on AWS Elastic Beanstalk</li>
+            <li>Built player search, replay analysis, pro comparisons, 3D playback, and admin tools</li>
+            <li>Created a shared SQLite/PostgreSQL data layer for player stats, accounts, replay history, ranks, labels, and background jobs</li>
+            <li>Added player search across Steam, Epic, PlayStation, Xbox, and Switch</li>
+            <li>Used stable platform IDs to handle duplicate names and username changes</li>
+            <li>Built asynchronous analysis and maintenance jobs with progress tracking and diagnostics</li>
+            <li>Developed a Ballchasing API client with caching, parallel replay retrieval, and request pacing</li>
+            <li>Added retry handling and provider cooldowns</li>
+            <li>Reduced median cold analysis time from 9.73s to 8.54s</li>
+            <li>Batched historical rank lookups to reduce database reads</li>
+            <li>Reduced SQLite write contention during concurrent updates</li>
+            <li>Added public replay uploads with validation and duplicate handling</li>
+            <li>Added authenticated replay history for users</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>Rust / Systems Programming</h3>
+          <ul>
+            <li>Built a Rust replay-processing layer using boxcars and subtr-actor</li>
+            <li>Extracted player, ball, rotation, boost, team, and demolition data</li>
+            <li>Handled actor-ID reuse, respawns, missing boost-pad data, and incomplete replay headers</li>
+            <li>Integrated 28 native gameplay event types</li>
+            <li>Added flip resets, speed flips, wavedashes, air dribbles, passes, kickoffs, and 50/50 detection</li>
+            <li>Synced event timestamps with the 3D viewer timeline</li>
+            <li>Reduced duplicate and overlapping mechanic detections</li>
+            <li>Added version-aware replay reparsing and Python fallback detection</li>
+            <li>Built a Rust diagnostic tool for inspecting replay internals</li>
+            <li>Cross-compiled replay parsers for x86-64 and ARM64 Linux</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>Machine Learning / Player Analytics</h3>
+          <ul>
+            <li>Built a player-similarity pipeline using 43 gameplay features</li>
+            <li>Reduced player stats into 10-dimensional embeddings</li>
+            <li>Compared Fisher projections, NCA, and weighted similarity baselines</li>
+            <li>Improved top-three same-player retrieval from 72.5% to 80.4%</li>
+            <li>Implemented weighted PCA from scratch in Python</li>
+            <li>Built a hierarchical playstyle classifier with 9 archetypes and 4 families</li>
+            <li>Created a local coaching insight engine using peer comparisons and percentiles</li>
+            <li>Built professional-player comparison reports</li>
+            <li>Added rank-progression recommendations based on higher-ranked similar players</li>
+            <li>Built a recommendation system using 33 curated training packs</li>
+            <li>Trained a professional pathing model from 261 replays and 52 pro players</li>
+            <li>Processed approximately 407,000 frames and 12,365 boost-pad transitions</li>
+            <li>Exported trained models to JSON for lightweight production inference</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>Replay Mistake Detection / Model Development</h3>
+          <ul>
+            <li>Built heuristic detectors for 15 gameplay mistake categories</li>
+            <li>Added trained filters for 14 mistake categories</li>
+            <li>Tested logistic regression, tree ensembles, and gradient-boosted models</li>
+            <li>Built evaluation tools for precision, recall, thresholds, and false positives</li>
+            <li>Created an admin workflow for reviewing and labeling detected mistakes</li>
+            <li>Stored feature vectors, model scores, rejection reasons, and replay context</li>
+            <li>Added label import, export, reporting, and feature-backfill tools</li>
+            <li>Added safeguards to prevent incomplete or incompatible models from replacing production models</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>3D Replay Viewer</h3>
+          <ul>
+            <li>Built an interactive Three.js replay viewer</li>
+            <li>Rendered players, ball, boost pads, team colors, goals, and demolitions</li>
+            <li>Added interpolated movement and quaternion rotations</li>
+            <li>Built Free Fly, Bird’s Eye, Follow Ball, Follow Player, and Director cameras</li>
+            <li>Added player-perspective camera views</li>
+            <li>Built synchronized playback controls and timeline scrubbing</li>
+            <li>Added variable playback speed, scores, player labels, and boost meters</li>
+            <li>Added mechanic timelines with click-to-seek navigation</li>
+            <li>Built mistake cinematics that rewind and highlight gameplay decisions</li>
+            <li>Added positioning and pathing guidance during mistake reviews</li>
+            <li>Added keyboard shortcuts, touch controls, and responsive layouts</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>Frontend / UI and UX</h3>
+          <ul>
+            <li>Built the frontend with JavaScript and Jinja templates</li>
+            <li>Created player search, stat cards, coaching panels, player profiles, and replay previews</li>
+            <li>Added profile, statistics, and replay tabs</li>
+            <li>Added URL-based state and browser-history support</li>
+            <li>Built pro-player discovery cards and expandable profiles</li>
+            <li>Added radar charts and percentile comparisons</li>
+            <li>Added rank comparisons from Bronze through Supersonic Legend</li>
+            <li>Created a reusable dark-mode design system</li>
+            <li>Added responsive layouts and archetype-based accent styling</li>
+            <li>Improved keyboard accessibility and touch support</li>
+            <li>Added reduced-motion support</li>
+            <li>Improved repeat loading with caching and preloading</li>
+            <li>Added frontend retries for temporary API and network failures</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>Rank Services / Account Management</h3>
+          <ul>
+            <li>Integrated current-rank lookup through PsyNet</li>
+            <li>Added rank caching and failure cooldowns</li>
+            <li>Stored historical ranks from replay uploads and data collection</li>
+            <li>Separated current rank from match-time rank</li>
+            <li>Built rank-based comparison cohorts</li>
+            <li>Added automatic Epic credential renewal</li>
+            <li>Stored rotated credentials in AWS Secrets Manager</li>
+            <li>Implemented Google OAuth, Epic OAuth, and Steam OpenID</li>
+            <li>Added password-based accounts and email confirmation</li>
+            <li>Added password recovery and identity linking</li>
+            <li>Added ownership-conflict protection</li>
+            <li>Created separate administrator and playtester roles</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>Security</h3>
+          <ul>
+            <li>Stored application credentials using AWS Elastic Beanstalk secret references</li>
+            <li>Supported plain and JSON-wrapped secret formats</li>
+            <li>Hashed passwords with PBKDF2-HMAC-SHA256 and unique salts</li>
+            <li>Used constant-time password verification</li>
+            <li>Configured signed Flask sessions</li>
+            <li>Added HttpOnly and SameSite cookie protections</li>
+            <li>Built per-IP sliding-window API rate limiting</li>
+            <li>Added endpoint-specific and global request limits</li>
+            <li>Added Retry-After headers and automatic bucket cleanup</li>
+            <li>Protected administrator login with failed-attempt limits and lockouts</li>
+            <li>Configured trusted-proxy handling for client IP resolution</li>
+            <li>Added request-body and field-size limits</li>
+            <li>Validated search and API parameters</li>
+            <li>Used parameterized SQL queries</li>
+            <li>Added X-Content-Type-Options and X-Frame-Options headers</li>
+            <li>Added structured API error handling</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>External Integrations / Data</h3>
+          <ul>
+            <li>Maintained a curated database of 60 professional Rocket League players</li>
+            <li>Stored platform identities, portraits, Liquipedia pages, and playstyle overrides</li>
+            <li>Integrated Ballchasing for pro-player and coach verification</li>
+            <li>Built cached Liquipedia scraping for player profiles and championship results</li>
+            <li>Added thread-safe caching and User-Agent configuration</li>
+            <li>Integrated SMTP email for contact forms, email confirmation, and password recovery</li>
+            <li>Added Plausible analytics</li>
+            <li>Organized rank icons, platform assets, and player portraits</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>DevOps / Deployment / Testing</h3>
+          <ul>
+            <li>Built an Elastic Beanstalk deployment bundler</li>
+            <li>Packaged Python code, frontend files, models, nginx config, and Rust binaries</li>
+            <li>Added a deployment mode using a bundled SQLite snapshot instead of live RDS</li>
+            <li>Built database snapshot export tooling</li>
+            <li>Excluded account and authentication data from public snapshots</li>
+            <li>Configured nginx upload limits</li>
+            <li>Added application health checks</li>
+            <li>Organized Python dependencies into runtime, development, and ML groups</li>
+            <li>Built Python, JavaScript, and Rust regression tests</li>
+            <li>Tested replay parsing, authentication, caching, concurrency, mechanics, and identity resolution</li>
+            <li>Automated Python tests and Ruff checks with GitHub Actions</li>
+            <li>Built offline and live benchmark tools</li>
+            <li>Added CPU profiling and recorded API-response testing</li>
+            <li>Added reproducibility metadata for models and replay parsers</li>
+          </ul>
+        </section>
+        <section class="rlvision-work-section">
+          <h3>Earlier Gemini Integration / AWS Security</h3>
+          <ul>
+            <li>Migrated a Gemini API key from environment variables to AWS Secrets Manager</li>
+            <li>Configured least-privilege IAM access for the Elastic Beanstalk instance role</li>
+            <li>Debugged a production-only Gemini authentication failure</li>
+            <li>Traced secret injection and ARN/JSON-key mappings</li>
+            <li>Fixed differences between local and cloud configuration</li>
+            <li>Added optional Gemini-based insight rewriting</li>
+            <li>Added structured response validation, timeouts, and diagnostic logging</li>
+          </ul>
+        </section>
+      </section>
+
+    </main>
+
+    <script src="matrix.js"></script>
+  </body>
+</html>

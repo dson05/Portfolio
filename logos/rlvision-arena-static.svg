@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" fill="none" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="pitch" x1="120" y1="520" x2="890" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#132b29"/>
+      <stop offset=".48" stop-color="#10251b"/>
+      <stop offset="1" stop-color="#27271d"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="73" y1="270" x2="564" y2="127" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#63c7ff"/>
+      <stop offset=".5" stop-color="#b6ff86" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#ffb166"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="295" y1="62" x2="324" y2="338" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#80c7b1" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#80c7b1" stop-opacity=".02"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#b6ff86" stop-opacity=".09"/>
+      <stop offset="1" stop-color="#b6ff86" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ball">
+      <stop stop-color="#f2ffdf"/>
+      <stop offset="1" stop-color="#b6ff86"/>
+    </radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M100 0H0V100" stroke="#9dcab1" stroke-opacity=".11" stroke-width="1.5"/>
+    </pattern>
+    <clipPath id="bounds">
+      <path d="M90 0H910Q1000 0 1000 90V510Q1000 600 910 600H90Q0 600 0 510V90Q0 0 90 0Z"/>
+    </clipPath>
+  </defs>
+
+  <ellipse cx="330" cy="233" rx="292" ry="193" fill="url(#halo)"/>
+  <ellipse cx="326" cy="320" rx="220" ry="45" fill="#020b08" opacity=".42"/>
+
+  <!-- The lower rail gives the floating pitch its depth. -->
+  <path d="M55 231 235 345 595 195V211L235 361 55 247Z" fill="#081511"/>
+  <path d="M55 247 235 361 595 211" stroke="#82bea0" stroke-opacity=".16"/>
+  <path d="M69 252 234 356 580 212" stroke="url(#rim)" stroke-opacity=".25"/>
+  <path d="M55 231V199L415 49 595 163V195L415 81Z" fill="url(#glass)"/>
+  <path d="M55 199 415 49 595 163" stroke="url(#rim)" stroke-opacity=".38"/>
+  <path d="M115 174V206M175 149V181M235 124V156M295 99V131M355 74V106M415 49V81M460 77.5V109.5M505 106V138M550 134.5V166.5M595 163V195" stroke="#a4d8bf" stroke-opacity=".12"/>
+  <path d="M55 214 415 64 595 178" stroke="#a4d8bf" stroke-opacity=".08"/>
+
+  <g transform="matrix(.36 -.15 .30 .19 55 231)">
+    <path d="M90 0H910Q1000 0 1000 90V510Q1000 600 910 600H90Q0 600 0 510V90Q0 0 90 0Z" fill="url(#pitch)" stroke="#b4d9be" stroke-opacity=".3" stroke-width="3"/>
+    <g clip-path="url(#bounds)">
+      <path d="M0 0H1000V600H0Z" fill="url(#grid)"/>
+      <path d="M0 0H155V600H0Z" fill="#63c7ff" opacity=".055"/>
+      <path d="M845 0H1000V600H845Z" fill="#ffb166" opacity=".055"/>
+      <path d="M90 28H910Q972 28 972 90V510Q972 572 910 572H90Q28 572 28 510V90Q28 28 90 28Z" stroke="#b6dfc1" stroke-opacity=".32" stroke-width="2"/>
+      <path d="M500 28V572" stroke="#c5ecd0" stroke-opacity=".34" stroke-width="2"/>
+      <circle cx="500" cy="300" r="117" stroke="#c5ecd0" stroke-opacity=".34" stroke-width="2"/>
+      <circle cx="500" cy="300" r="9" fill="#c5ecd0" fill-opacity=".32"/>
+      <path d="M28 145H133Q183 145 183 195V405Q183 455 133 455H28M28 210H90V390H28" stroke="#63c7ff" stroke-opacity=".62" stroke-width="3"/>
+      <path d="M972 145H867Q817 145 817 195V405Q817 455 867 455H972M972 210H910V390H972" stroke="#ffb166" stroke-opacity=".62" stroke-width="3"/>
+      <g fill="#d6cf98" fill-opacity=".55">
+        <circle cx="290" cy="135" r="6"/><circle cx="290" cy="465" r="6"/>
+        <circle cx="710" cy="135" r="6"/><circle cx="710" cy="465" r="6"/>
+        <circle cx="500" cy="85" r="6"/><circle cx="500" cy="515" r="6"/>
+      </g>
+      <g stroke="#d6cf98" stroke-opacity=".25" stroke-width="2">
+        <circle cx="100" cy="88" r="15"/><circle cx="100" cy="512" r="15"/>
+        <circle cx="900" cy="88" r="15"/><circle cx="900" cy="512" r="15"/>
+        <circle cx="500" cy="45" r="15"/><circle cx="500" cy="555" r="15"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- blue-replay-car: simple box, front cone, and raised top marker. -->
+  <g id="blue-replay-car">
+    <ellipse cx="257.08" cy="271.02" rx="21" ry="7" fill="#02080b" opacity=".35"/>
+    <!-- Draw the far-side cone before the body so the car occludes it. -->
+    <polygon points="260.74,255.49 261.81,258.37 269.81,251.90" fill="#8b999f"/>
+    <polygon points="261.81,253.28 260.74,255.49 269.81,251.90" fill="#9aa8af"/>
+    <polygon points="261.81,258.37 264.39,260.24 269.81,251.90" fill="#aab7bd"/>
+    <polygon points="264.39,253.04 261.81,253.28 269.81,251.90" fill="#c7d0d5"/>
+    <polygon points="264.39,260.24 266.96,259.99 269.81,251.90" fill="#dce3e7"/>
+    <polygon points="266.96,254.90 264.39,253.04 269.81,251.90" fill="#e5e9eb"/>
+    <polygon points="266.96,259.99 268.03,257.78 269.81,251.90" fill="#ffffff"/>
+    <polygon points="268.03,257.78 266.96,254.90 269.81,251.90" fill="#f5f7f8"/>
+    <polygon points="256.29,260.09 272.49,265.18 272.49,254.18 256.29,249.09" fill="#174766"/>
+    <polygon points="241.67,272.86 256.29,260.09 256.29,249.09 241.67,261.86" fill="#1e5e89"/>
+    <polygon points="272.49,265.18 257.87,277.95 257.87,266.95 272.49,254.18" fill="#1e5e89"/>
+    <polygon points="257.87,277.95 241.67,272.86 241.67,261.86 257.87,266.95" fill="#174766"/>
+    <polygon points="241.67,261.86 256.29,249.09 272.49,254.18 257.87,266.95" fill="#53b8ed"/>
+    <polygon points="249.09,259.71 254.27,255.18 254.27,254.18 249.09,258.71" fill="#174766"/>
+    <polygon points="254.27,255.18 263.19,257.98 263.19,256.98 254.27,254.18" fill="#174766"/>
+    <polygon points="263.19,257.98 258.00,262.51 258.00,261.51 263.19,256.98" fill="#174766"/>
+    <polygon points="258.00,262.51 249.09,259.71 249.09,258.71 258.00,261.51" fill="#174766"/>
+    <polygon points="249.09,258.71 254.27,254.18 263.19,256.98 258.00,261.51" fill="#087bc4"/>
+  </g>
+  <!-- orange-replay-car: simple box, front cone, and raised top marker. -->
+  <g id="orange-replay-car">
+    <ellipse cx="448.30" cy="196.70" rx="21" ry="7" fill="#02080b" opacity=".35"/>
+    <polygon points="449.32,185.80 464.44,191.72 464.44,180.72 449.32,174.80" fill="#633b14"/>
+    <polygon points="432.16,197.68 449.32,185.80 449.32,174.80 432.16,186.68" fill="#895019"/>
+    <polygon points="464.44,191.72 447.28,203.60 447.28,192.60 464.44,180.72" fill="#895019"/>
+    <polygon points="447.28,203.60 432.16,197.68 432.16,186.68 447.28,192.60" fill="#633b14"/>
+    <polygon points="464.44,180.72 447.28,192.60 432.16,186.68 449.32,174.80" fill="#f5a137"/>
+    <polygon points="456.61,182.46 450.52,186.67 450.52,185.67 456.61,181.46" fill="#633b14"/>
+    <polygon points="450.52,186.67 442.20,183.41 442.20,182.41 450.52,185.67" fill="#633b14"/>
+    <polygon points="442.20,183.41 448.29,179.20 448.29,178.20 442.20,182.41" fill="#633b14"/>
+    <polygon points="448.29,179.20 456.61,182.46 456.61,181.46 448.29,178.20" fill="#633b14"/>
+    <polygon points="456.61,181.46 450.52,185.67 442.20,182.41 448.29,178.20" fill="#d33c08"/>
+    <polygon points="436.32,193.30 437.31,191.15 433.36,199.04" fill="#f5f7f8"/>
+    <polygon points="437.31,196.24 436.32,193.30 433.36,199.04" fill="#ffffff"/>
+    <polygon points="437.31,191.15 439.72,191.04 433.36,199.04" fill="#e5e9eb"/>
+    <polygon points="439.72,198.24 437.31,196.24 433.36,199.04" fill="#dce3e7"/>
+    <polygon points="439.72,191.04 442.13,193.03 433.36,199.04" fill="#c7d0d5"/>
+    <polygon points="442.13,198.12 439.72,198.24 433.36,199.04" fill="#aab7bd"/>
+    <polygon points="442.13,193.03 443.12,195.97 433.36,199.04" fill="#9aa8af"/>
+    <polygon points="443.12,195.97 442.13,198.12 433.36,199.04" fill="#8b999f"/>
+  </g>
+
+  <!-- Raised goals and the nearer transparent wall. -->
+  <path d="M118 271V246L172 280V305" fill="#63c7ff" fill-opacity=".04" stroke="#63c7ff" stroke-opacity=".7" stroke-width="1.4"/>
+  <path d="M118 246 105 251 159 285 172 280M159 285V309" stroke="#63c7ff" stroke-opacity=".26"/>
+  <path d="M478 121V96L532 130V155" fill="#ffb166" fill-opacity=".04" stroke="#ffb166" stroke-opacity=".7" stroke-width="1.4"/>
+  <path d="M478 96 491 91 545 125 532 130M545 125V150" stroke="#ffb166" stroke-opacity=".26"/>
+  <path d="M55 231V199L235 313 595 163V195L235 345Z" fill="url(#glass)"/>
+  <path d="M55 199 235 313 595 163" stroke="url(#rim)" stroke-opacity=".35"/>
+  <path d="M55 231 235 345 595 195" stroke="url(#rim)" stroke-opacity=".75" stroke-width="1.3"/>
+  <path d="M100 227.5V259.5M145 256V288M190 284.5V316.5M235 313V345M295 288V320M355 263V295M415 238V270M475 213V245M535 188V220" stroke="#a4d8bf" stroke-opacity=".14"/>
+
+  <!-- The raised trajectory connects the replay to its analytical projection. -->
+  <path d="M253 261C284 197 330 138 372 143S428 174 462 135" stroke="#b6ff86" stroke-opacity=".2" stroke-width="5" filter="url(#glow)"/>
+  <path id="replay-trajectory" d="M253 261C284 197 330 138 372 143S428 174 462 135" stroke="#b6ff86" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M462 135V162" stroke="#b6ff86" stroke-opacity=".4" stroke-dasharray="3 4"/>
+  <g fill="#10221a" stroke="#b6ff86" stroke-width="1.5">
+    <circle cx="253" cy="261" r="3"/>
+    <circle cx="282" cy="208" r="3"/>
+    <circle cx="319" cy="162" r="3"/>
+    <circle cx="372" cy="143" r="3"/>
+    <circle cx="416" cy="154" r="3"/>
+  </g>
+  <circle cx="462" cy="135" r="14" fill="#b6ff86" fill-opacity=".12"/>
+  <circle cx="462" cy="135" r="8.5" stroke="#b6ff86" stroke-opacity=".4"/>
+  <circle cx="462" cy="135" r="4.5" fill="url(#ball)"/>
+  <path d="M458 119H466M478 131V139" stroke="#b6ff86" stroke-opacity=".65"/>
+
+</svg>

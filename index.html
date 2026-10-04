@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="home-page">
     <header id="scroll-header" class="matrix-header">
       <div class="matrix-scanline"></div>
       <nav class="matrix-nav">
@@ -52,6 +52,20 @@
           </span>
           <span class="link-text">Projects</span>
         </a>
+        <a
+          href="rlvision.html"
+          class="matrix-link"
+          title="Rocket League Vision"
+        >
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8" />
+              <path d="m12 7 4.8 3.5-1.8 5.6H9l-1.8-5.6L12 7Z" />
+              <path d="M12 4v3m7.6 2.5-2.8 1M16.7 18.5l-1.7-2.4m-6 0-1.7 2.4M4.4 9.5l2.8 1" />
+            </svg>
+          </span>
+          <span class="link-text">RLVision</span>
+        </a>
       </nav>
       <a href="index.html" class="matrix-glow">Daniel Son</a>
     </header>
@@ -61,24 +75,26 @@
     <div class="content-wrapper mx-auto">
       <!-- Header -->
       <div
-        class="h-screen flex flex-col justify-center items-center text-center"
+        class="home-hero h-screen flex flex-col justify-center items-center text-center"
       >
         <h1 class="matrix-text">Daniel Son</h1>
         <div class="mt-4 typing-shadow">
           <img
-            src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1500&color=FFFFFF&center=true&vCenter=true&width=500&
-            lines=
-            University+of+Maryland;
-            Cybersecurity+Analyst+Intern+@+Somos;
-            Computer+Science+and+Mathematics;
-            ΣΦΔ;"
-            alt="Typing Animation"
+            src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;weight=600&amp;size=24&amp;pause=1500&amp;color=FFFFFF&amp;center=true&amp;vCenter=true&amp;width=600&amp;height=50&amp;lines=University+of+Maryland;Cybersecurity+Analyst+Intern+%40+Somos,+Inc.;Computer+Science+and+Mathematics;%CE%A3%CE%A6%CE%94"
+            width="600"
+            height="50"
+            alt="University of Maryland; Cybersecurity Analyst Intern @ Somos; Computer Science and Mathematics; ΣΦΔ"
           />
         </div>
+        <a id="scroll-hint" class="scroll-hint" href="#home-details" aria-label="Scroll to explore" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </a>
       </div>
 
       <!-- Black Box Section -->
-      <div class="my-12 px-4">
+      <div id="home-details" class="my-12 px-4">
         <div class="black-content-box">
           <!-- Socials -->
           <br />
@@ -130,26 +146,16 @@
 
           <br />
 
-          <!-- Toolkit and Projects side by side -->
-          <div class="flex flex-col lg:flex-row gap-8 mb-8">
-            <!-- Toolkit on the left (narrower) -->
-            <div class="lg:w-1/3 text-left">
-              <h2 class="text-3xl font-bold mb-2">💼 My Toolkit</h2>
-              <p class="text-gray-400 mb-4"></p>
-
-              <div class="toolkit-accordion">
-                <details class="toolkit-accordion-item" open>
-                  <summary class="toolkit-summary">
-                    <span>Languages</span>
-                    <button
-                      type="button"
-                      class="accordion-toggle"
-                      aria-label="Toggle Languages"
-                    >
-                      +
-                    </button>
-                  </summary>
-                  <div class="accordion-panel flex flex-wrap gap-2 mt-3">
+          <!-- Portfolio sections -->
+          <div class="portfolio-overview">
+            <section class="home-section toolkit-section" aria-labelledby="toolkit-title">
+              <div class="home-section-heading">
+                <h2 id="toolkit-title" class="home-section-title">💼 My Toolkit</h2>
+              </div>
+              <div class="toolkit-groups">
+                <section class="toolkit-group">
+                  <h3 class="toolkit-heading">Languages</h3>
+                  <div class="flex flex-wrap gap-2 mt-3">
                     <span class="skill-pill">Python</span>
                     <span class="skill-pill">SQL</span>
                     <span class="skill-pill">Java</span>
@@ -158,42 +164,24 @@
                     <span class="skill-pill">Rust</span>
                     <span class="skill-pill">OCaml</span>
                     <span class="skill-pill">Assembly</span>
+                    <span class="skill-pill">MIPS Assembly</span>
                     <span class="skill-pill">R</span>
-                    <span class="skill-pill">LaTeX</span>
                   </div>
-                </details>
+                </section>
 
-                <details class="toolkit-accordion-item">
-                  <summary class="toolkit-summary">
-                    <span>Operating Systems</span>
-                    <button
-                      type="button"
-                      class="accordion-toggle"
-                      aria-label="Toggle Operating Systems"
-                    >
-                      +
-                    </button>
-                  </summary>
-                  <div class="accordion-panel flex flex-wrap gap-2 mt-3">
+                <section class="toolkit-group">
+                  <h3 class="toolkit-heading">Operating Systems</h3>
+                  <div class="flex flex-wrap gap-2 mt-3">
                     <span class="skill-pill">macOS</span>
                     <span class="skill-pill">Windows</span>
                     <span class="skill-pill">Linux</span>
                     <span class="skill-pill">Kali Linux</span>
                   </div>
-                </details>
+                </section>
 
-                <details class="toolkit-accordion-item">
-                  <summary class="toolkit-summary">
-                    <span>Cybersecurity Tools</span>
-                    <button
-                      type="button"
-                      class="accordion-toggle"
-                      aria-label="Toggle Cybersecurity Tools"
-                    >
-                      +
-                    </button>
-                  </summary>
-                  <div class="accordion-panel flex flex-wrap gap-2 mt-3">
+                <section class="toolkit-group">
+                  <h3 class="toolkit-heading">Cybersecurity Tools</h3>
+                  <div class="flex flex-wrap gap-2 mt-3">
                     <span class="skill-pill">Nmap</span>
                     <span class="skill-pill">Hydra</span>
                     <span class="skill-pill">Gobuster</span>
@@ -201,21 +189,14 @@
                     <span class="skill-pill">Wireshark</span>
                     <span class="skill-pill">Burpsuite</span>
                     <span class="skill-pill">VMware</span>
+                    <span class="skill-pill">CrowdStrike Falcon</span>
+                    <span class="skill-pill">Qualys</span>
                   </div>
-                </details>
+                </section>
 
-                <details class="toolkit-accordion-item">
-                  <summary class="toolkit-summary">
-                    <span>Developer Tools</span>
-                    <button
-                      type="button"
-                      class="accordion-toggle"
-                      aria-label="Toggle Dev Tools"
-                    >
-                      +
-                    </button>
-                  </summary>
-                  <div class="accordion-panel flex flex-wrap gap-2 mt-3">
+                <section class="toolkit-group">
+                  <h3 class="toolkit-heading">Developer Tools</h3>
+                  <div class="flex flex-wrap gap-2 mt-3">
                     <span class="skill-pill">GitHub</span>
                     <span class="skill-pill">Docker</span>
                     <span class="skill-pill">VSCode</span>
@@ -226,21 +207,13 @@
                     <span class="skill-pill">gdb</span>
                     <span class="skill-pill">Valgrind</span>
                     <span class="skill-pill">Dune</span>
+                    <span class="skill-pill">Jira</span>
                   </div>
-                </details>
+                </section>
 
-                <details class="toolkit-accordion-item">
-                  <summary class="toolkit-summary">
-                    <span>Libraries</span>
-                    <button
-                      type="button"
-                      class="accordion-toggle"
-                      aria-label="Toggle Libraries"
-                    >
-                      +
-                    </button>
-                  </summary>
-                  <div class="accordion-panel flex flex-wrap gap-2 mt-3">
+                <section class="toolkit-group">
+                  <h3 class="toolkit-heading">Libraries</h3>
+                  <div class="flex flex-wrap gap-2 mt-3">
                     <span class="skill-pill">Flask</span>
                     <span class="skill-pill">BreezySwing</span>
                     <span class="skill-pill">pandas</span>
@@ -252,178 +225,77 @@
                     <span class="skill-pill">Matplotlib</span>
                     <span class="skill-pill">Seaborn</span>
                   </div>
-                </details>
+                </section>
 
-                <details class="toolkit-accordion-item">
-                  <summary class="toolkit-summary">
-                    <span>Other</span>
-                    <button
-                      type="button"
-                      class="accordion-toggle"
-                      aria-label="Toggle Other"
-                    >
-                      +
-                    </button>
-                  </summary>
-                  <div class="accordion-panel flex flex-wrap gap-2 mt-3">
-                    <span class="skill-pill">Incident Response</span>
-                    <span class="skill-pill">Network Analysis</span>
-                    <span class="skill-pill">Risk Management</span>
+                <section class="toolkit-group">
+                  <h3 class="toolkit-heading">Other</h3>
+                  <div class="flex flex-wrap gap-2 mt-3">
                     <span class="skill-pill">Prompt Engineering</span>
-                    <span class="skill-pill">Automation</span>
-                    <span class="skill-pill">Data analysis</span>
-                    <span class="skill-pill">Machine learning</span>
+                    <span class="skill-pill">Agile/Scrum</span>
+                    <span class="skill-pill">Microsoft Office</span>
+                    <span class="skill-pill">Lucidchart</span>
                   </div>
-                </details>
+                </section>
               </div>
-              <!-- Certifications-->
-              <div class="mt-8">
-                <div class="certifications-shell">
-                  <div class="certifications-heading">
-                    <h2 class="text-3xl font-bold mb-2">📜 Certifications</h2>
-                  </div>
+            </section>
 
-                  <div class="certifications-grid">
-                    <a
-                      href="https://www.credly.com/badges/6bc1b1ee-c569-4b9a-9c18-75e2a44e1c8c/public_url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="cert-card"
-                      style="--cert-accent: 66, 133, 244"
-                    >
-                      <div class="cert-card-top">
-                        <div class="cert-logo-tile">
-                          <img
-                            src="https://cdn.simpleicons.org/google/white"
-                            alt="Google Logo"
-                            class="cert-logo-image cert-logo-image--google"
-                          />
-                        </div>
-                        <span class="cert-card-arrow" aria-hidden="true"
-                          >↗</span
-                        >
-                      </div>
-
-                      <div class="cert-card-body">
-                        <h3 class="cert-card-title">Google Cybersecurity</h3>
-                      </div>
-
-                      <div class="cert-card-bottom">
-                        <p class="cert-card-meta">
-                          <span class="cert-earned-check" aria-hidden="true">✓</span>
-                          <span>Earned <time datetime="2025-02">February 2025</time></span>
-                        </p>
-                        <span class="cert-chip">Security</span>
-                      </div>
-                    </a>
-
-                    <a
-                      href="https://www.credly.com/badges/44600edd-a72d-4115-bc9d-9077239cdb00/public_url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="cert-card"
-                      style="--cert-accent: 213, 0, 0"
-                    >
-                      <div class="cert-card-top">
-                        <div class="cert-logo-tile">
-                          <img
-                            src="https://cdn.simpleicons.org/comptia/white"
-                            alt="CompTIA Logo"
-                            class="cert-logo-image cert-logo-image--comptia"
-                          />
-                        </div>
-                        <span class="cert-card-arrow" aria-hidden="true"
-                          >↗</span
-                        >
-                      </div>
-
-                      <div class="cert-card-body">
-                        <h3 class="cert-card-title">Security+</h3>
-                      </div>
-
-                      <div class="cert-card-bottom">
-                        <p class="cert-card-meta">
-                          <span class="cert-earned-check" aria-hidden="true">✓</span>
-                          <span>Earned <time datetime="2025-06">June 2025</time></span>
-                        </p>
-                        <span class="cert-chip">Security</span>
-                      </div>
-                    </a>
-
-                    <a
-                      href="https://www.credly.com/badges/a17e6e03-02e3-493e-8c41-aab2cc269a5b/linked_in_profile"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="cert-card"
-                      style="--cert-accent: 255, 153, 0"
-                    >
-                      <div class="cert-card-top">
-                        <div class="cert-logo-tile">
-                          <img
-                            src="logos/white-amazon-logo.png"
-                            alt="AWS Logo"
-                            class="cert-logo-image cert-logo-image--aws"
-                          />
-                        </div>
-                        <span class="cert-card-arrow" aria-hidden="true"
-                          >↗</span
-                        >
-                      </div>
-
-                      <div class="cert-card-body">
-                        <h3 class="cert-card-title">Cloud Practitioner</h3>
-                      </div>
-
-                      <div class="cert-card-bottom">
-                        <p class="cert-card-meta">
-                          <span class="cert-earned-check" aria-hidden="true">✓</span>
-                          <span>Earned <time datetime="2025-09">September 2025</time></span>
-                        </p>
-                        <span class="cert-chip">Cloud</span>
-                      </div>
-                    </a>
-
-                    <a
-                      href="https://www.credly.com/badges/3ea352e5-4214-4f96-839f-6d7727eb7a3f/public_url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="cert-card"
-                      style="--cert-accent: 213, 0, 0"
-                    >
-                      <div class="cert-card-top">
-                        <div class="cert-logo-tile">
-                          <img
-                            src="https://cdn.simpleicons.org/comptia/white"
-                            alt="CompTIA Logo"
-                            class="cert-logo-image cert-logo-image--comptia"
-                          />
-                        </div>
-                        <span class="cert-card-arrow" aria-hidden="true"
-                          >↗</span
-                        >
-                      </div>
-
-                      <div class="cert-card-body">
-                        <h3 class="cert-card-title">Network+</h3>
-                      </div>
-
-                      <div class="cert-card-bottom">
-                        <p class="cert-card-meta">
-                          <span class="cert-earned-check" aria-hidden="true">✓</span>
-                          <span>Earned <time datetime="2026-08">August 2026</time></span>
-                        </p>
-                        <span class="cert-chip">Networking</span>
-                      </div>
-                    </a>
-                  </div>
-                </div>
+            <section class="home-section" aria-labelledby="featured-projects-title">
+              <div class="home-section-heading">
+                <h2 id="featured-projects-title" class="home-section-title">🚀 Featured Projects</h2>
+                <a href="projects.html" class="home-section-link">More Projects <span aria-hidden="true">↗</span></a>
               </div>
-            </div>
+              <div class="featured-projects-grid">
+                <!-- Flagship project spans the full row -->
+                <a
+                  href="rlvision.html"
+                  class="project-card rlvision-project-card"
+                  aria-labelledby="rlvision-card-title"
+                  aria-describedby="rlvision-card-description"
+                >
+                  <span
+                    class="favorite-star"
+                    aria-hidden="true"
+                    title="Favorite"
+                    >★</span
+                  >
+                  <div class="rlvision-project-copy">
+                    <h3 id="rlvision-card-title" class="text-xl font-bold mb-2">Rocket League Vision</h3>
+                    <p id="rlvision-card-description" class="mb-3 min-h-[4.5rem]">
+                      <span class="rlvision-gold-text">My magnum opus</span>
+                    </p>
+                    <div class="mt-auto">
+                      <span
+                        class="text-xs bg-red-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >Python</span
+                      >
+                      <span
+                        class="text-xs bg-red-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >Rust</span
+                      >
+                      <span
+                        class="text-xs bg-red-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >AWS</span
+                      >
+                      <span
+                        class="text-xs bg-red-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >Claude Code</span
+                      >
+                    </div>
+                  </div>
+                  <picture class="rlvision-art-source">
+                    <source media="(prefers-reduced-motion: reduce)" srcset="logos/rlvision-arena-static.svg" />
+                    <img
+                      class="rlvision-project-art"
+                      src="logos/rlvision-arena.svg"
+                      alt=""
+                      width="640"
+                      height="440"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                </a>
 
-            <!-- Projects on the right (wider) -->
-            <div class="lg:w-2/3">
-              <h2 class="text-3xl font-bold mb-6">🚀 Featured Projects</h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Project 1 -->
                 <div
                   class="project-card bg-gray-800/70 p-4 rounded-lg hover:scale-[1.02] transition-transform flex flex-col h-full"
@@ -488,69 +360,34 @@
                   </a>
                 </div>
 
-                <!-- Project 3 -->
-                <div
-                  class="project-card bg-gray-800/70 p-4 rounded-lg hover:scale-[1.02] transition-transform flex flex-col h-full"
-                >
-                  <span
-                    class="favorite-star"
-                    aria-hidden="true"
-                    title="Favorite"
-                    >★</span
-                  >
-                  <a
-                    href="https://www.rocketleaguevision.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="block flex-grow"
-                  >
-                    <h3 class="text-xl font-bold mb-2">Rocket League Vision</h3>
-                    <p class="text-gray-400 mb-3 min-h-[4.5rem]">
-                      Gameplay analysis platform for the video game Rocket League
-                    </p>
-                    <div class="mt-auto">
-                      <span
-                        class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >Python</span
-                      >
-                      <span
-                        class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >Rust</span
-                      >
-                      <span
-                        class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >AWS</span
-                      >
-                      <span
-                        class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >Claude Code</span
-                      >
-                    </div>
-                  </a>
-                </div>
-
                 <!-- Project 4 -->
                 <div
                   class="project-card bg-gray-800/70 p-4 rounded-lg hover:scale-[1.02] transition-transform flex flex-col h-full"
                 >
                   <a
-                    href="https://github.com/DanielSon721/OCaml-Interpreter"
+                    href="https://github.com/DanielSon721/Reverse-Engineered-Chatroom-Server"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="block flex-grow"
                   >
-                    <h3 class="text-xl font-bold mb-2">OCaml Interpreter</h3>
+                    <h3 class="text-xl font-bold mb-2">
+                      Reverse Engineered Chat Room
+                    </h3>
                     <p class="text-gray-400 mb-3 min-h-[4.5rem]">
-                      Simple computer language interpreter
+                      Deconstructed an undocumented binary chat protocol
                     </p>
                     <div class="mt-auto">
                       <span
-                        class="text-xs bg-yellow-900 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >OCaml</span
+                        class="text-xs bg-teal-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >C</span
                       >
                       <span
-                        class="text-xs bg-yellow-900 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >Dune</span
+                        class="text-xs bg-teal-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >Wireshark</span
+                      >
+                      <span
+                        class="text-xs bg-teal-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        >tcpdump</span
                       >
                     </div>
                   </a>
@@ -606,7 +443,7 @@
                     </p>
                     <div class="mt-auto">
                       <span
-                        class="text-xs bg-red-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
+                        class="text-xs bg-green-700 px-2 py-1 rounded mr-1 mb-1 inline-block"
                         >Python</span
                       >
                     </div>
@@ -645,55 +482,144 @@
                     </div>
                   </a>
                 </div>
+              </div>
+            </section>
 
-                <!-- Project 8 -->
-                <div
-                  class="project-card bg-gray-800/70 p-4 rounded-lg hover:scale-[1.02] transition-transform flex flex-col h-full"
-                >
-                  <a
-                    href="https://github.com/DanielSon721/Reverse-Engineered-Chatroom-Server"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="block flex-grow"
-                  >
-                    <h3 class="text-xl font-bold mb-2">
-                      Reverse Engineered Chat Room
-                    </h3>
-                    <p class="text-gray-400 mb-3 min-h-[4.5rem]">
-                      Deconstructed an undocumented binary chat protocol
-                    </p>
-                    <div class="mt-auto">
-                      <span
-                        class="text-xs bg-teal-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >C</span
-                      >
-                      <span
-                        class="text-xs bg-teal-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >Wireshark</span
-                      >
-                      <span
-                        class="text-xs bg-teal-600 px-2 py-1 rounded mr-1 mb-1 inline-block"
-                        >tcpdump</span
-                      >
-                    </div>
-                  </a>
-                </div>
-
-                <div class="mt-3 md:col-span-2 flex justify-center">
-                  <a href="projects.html" class="filter-btn">More Projects</a>
+            <section class="home-section certifications-section" aria-labelledby="certifications-title">
+              <div class="home-section-heading">
+                <div>
+                  <h2 id="certifications-title" class="home-section-title">📜 Certifications</h2>
                 </div>
               </div>
-            </div>
+
+              <div class="credentials-panel">
+                <div class="credentials-head" aria-hidden="true">
+                  <span>Credential</span>
+                  <span>Earned</span>
+                  <span class="credentials-source">Credly ↗</span>
+                </div>
+                <ul class="credentials-list" role="list">
+                  <li>
+                    <div class="credential credential--comptia">
+                      <div class="credential-identity">
+                        <span class="credential-logo" aria-hidden="true">
+                          <img src="https://cdn.simpleicons.org/comptia/white" alt="" loading="lazy" decoding="async" />
+                        </span>
+                        <div class="credential-name">
+                          <p id="cert-network-issuer" class="credential-issuer">CompTIA</p>
+                          <h3 id="cert-network-title" class="credential-title">Network+</h3>
+                        </div>
+                      </div>
+                      <span id="cert-network-date" class="credential-date">
+                        <span class="credential-date-label">Earned </span><time datetime="2026-08">August 2026</time>
+                      </span>
+                      <a
+                        href="https://www.credly.com/badges/3ea352e5-4214-4f96-839f-6d7727eb7a3f/public_url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-labelledby="cert-network-title cert-network-action"
+                        aria-describedby="cert-network-issuer cert-network-date"
+                        id="cert-network-action" class="credential-action"
+                      >
+                        <span>View credential<span class="sr-only"> on Credly (opens in a new tab)</span></span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="credential credential--aws">
+                      <div class="credential-identity">
+                        <span class="credential-logo" aria-hidden="true">
+                          <img src="logos/white-amazon-logo.png" alt="" loading="lazy" decoding="async" />
+                        </span>
+                        <div class="credential-name">
+                          <p id="cert-cloud-issuer" class="credential-issuer">Amazon Web Services</p>
+                          <h3 id="cert-cloud-title" class="credential-title">AWS Certified Cloud Practitioner</h3>
+                        </div>
+                      </div>
+                      <span id="cert-cloud-date" class="credential-date">
+                        <span class="credential-date-label">Earned </span><time datetime="2025-09">September 2025</time>
+                      </span>
+                      <a
+                        href="https://www.credly.com/badges/a17e6e03-02e3-493e-8c41-aab2cc269a5b/linked_in_profile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-labelledby="cert-cloud-title cert-cloud-action"
+                        aria-describedby="cert-cloud-issuer cert-cloud-date"
+                        id="cert-cloud-action" class="credential-action"
+                      >
+                        <span>View credential<span class="sr-only"> on Credly (opens in a new tab)</span></span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="credential credential--comptia">
+                      <div class="credential-identity">
+                        <span class="credential-logo" aria-hidden="true">
+                          <img src="https://cdn.simpleicons.org/comptia/white" alt="" loading="lazy" decoding="async" />
+                        </span>
+                        <div class="credential-name">
+                          <p id="cert-security-issuer" class="credential-issuer">CompTIA</p>
+                          <h3 id="cert-security-title" class="credential-title">Security+</h3>
+                        </div>
+                      </div>
+                      <span id="cert-security-date" class="credential-date">
+                        <span class="credential-date-label">Earned </span><time datetime="2025-06">June 2025</time>
+                      </span>
+                      <a
+                        href="https://www.credly.com/badges/44600edd-a72d-4115-bc9d-9077239cdb00/public_url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-labelledby="cert-security-title cert-security-action"
+                        aria-describedby="cert-security-issuer cert-security-date"
+                        id="cert-security-action" class="credential-action"
+                      >
+                        <span>View credential<span class="sr-only"> on Credly (opens in a new tab)</span></span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="credential credential--google">
+                      <div class="credential-identity">
+                        <span class="credential-logo" aria-hidden="true">
+                          <img src="https://cdn.simpleicons.org/google/white" alt="" loading="lazy" decoding="async" />
+                        </span>
+                        <div class="credential-name">
+                          <p id="cert-google-issuer" class="credential-issuer">Google</p>
+                          <h3 id="cert-google-title" class="credential-title">Google Cybersecurity Professional Certificate</h3>
+                        </div>
+                      </div>
+                      <span id="cert-google-date" class="credential-date">
+                        <span class="credential-date-label">Earned </span><time datetime="2025-02">February 2025</time>
+                      </span>
+                      <a
+                        href="https://www.credly.com/badges/6bc1b1ee-c569-4b9a-9c18-75e2a44e1c8c/public_url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-labelledby="cert-google-title cert-google-action"
+                        aria-describedby="cert-google-issuer cert-google-date"
+                        id="cert-google-action" class="credential-action"
+                      >
+                        <span>View credential<span class="sr-only"> on Credly (opens in a new tab)</span></span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
           </div>
 
           <br />
 
           <!-- Education Section -->
-          <div class="mt-12">
+          <div class="home-section-divider mt-12">
             <h2 class="text-3xl font-bold mb-6 text-center">🎓 Education</h2>
             <div class="max-w-6xl mx-auto">
               <h3 class="text-xl font-bold mb-4 text-center">
-                University of Maryland - Cybersecurity and Mathematics
+                University of Maryland - Computer Science and Mathematics
               </h3>
 
               <br />
@@ -705,7 +631,7 @@
                   class="edu-filter-btn active"
                   onclick="filterCourses('cs')"
                 >
-                  Cybersecurity
+                  Computer Science
                 </button>
                 <button
                   id="math-btn"
@@ -1045,7 +971,7 @@
           <br />
 
           <!-- Experience Section -->
-          <div class="mt-20">
+          <div class="home-section-divider mt-20">
             <h2 class="text-3xl font-bold mb-8 text-center">
               📂 Experience & Leadership
             </h2>
@@ -1164,7 +1090,7 @@
           </div>
 
           <!-- LeetCode Analytics Section -->
-          <div class="mt-20">
+          <div class="home-section-divider mt-20">
             <h2 class="text-3xl font-bold mb-8 text-center">
               📊 LeetCode Analytics
             </h2>
@@ -1250,89 +1176,5 @@
       </div>
     </div>
     <script src="matrix.js"></script>
-    <script>
-      const toolkitDetails = document.querySelectorAll(
-        ".toolkit-accordion-item",
-      );
-      toolkitDetails.forEach((details) => {
-        const summary = details.querySelector(".toolkit-summary");
-        const toggleBtn = details.querySelector(".accordion-toggle");
-        const panel = details.querySelector(".accordion-panel");
-        const syncButton = (isOpen = details.hasAttribute("open")) => {
-          toggleBtn.textContent = isOpen ? "-" : "+";
-        };
-        syncButton();
-
-        summary.addEventListener("click", (e) => {
-          if (!e.target.classList.contains("accordion-toggle")) {
-            e.preventDefault();
-          }
-        });
-
-        const animateDetails = (targetOpen) => {
-          if (!panel || details.classList.contains("is-animating")) {
-            return;
-          }
-
-          details.classList.add("is-animating");
-
-          if (targetOpen) {
-            details.setAttribute("open", "");
-            const startHeight = panel.scrollHeight;
-            panel.style.height = "0px";
-            panel.style.opacity = "0";
-            panel.style.transform = "translateY(-6px)";
-
-            requestAnimationFrame(() => {
-              panel.style.height = `${startHeight}px`;
-              panel.style.opacity = "1";
-              panel.style.transform = "translateY(0)";
-            });
-
-            panel.addEventListener(
-              "transitionend",
-              () => {
-                panel.style.height = "";
-                details.classList.remove("is-animating");
-              },
-              { once: true },
-            );
-          } else {
-            const startHeight = panel.scrollHeight;
-            panel.style.height = `${startHeight}px`;
-            panel.style.opacity = "1";
-            panel.style.transform = "translateY(0)";
-
-            requestAnimationFrame(() => {
-              panel.style.height = "0px";
-              panel.style.opacity = "0";
-              panel.style.transform = "translateY(-6px)";
-            });
-
-            panel.addEventListener(
-              "transitionend",
-              () => {
-                details.removeAttribute("open");
-                panel.style.height = "";
-                details.classList.remove("is-animating");
-              },
-              { once: true },
-            );
-          }
-        };
-
-        toggleBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          const willOpen = !details.hasAttribute("open");
-          syncButton(willOpen);
-          animateDetails(willOpen);
-        });
-
-        details.addEventListener("toggle", () =>
-          syncButton(details.hasAttribute("open")),
-        );
-      });
-    </script>
   </body>
 </html>
