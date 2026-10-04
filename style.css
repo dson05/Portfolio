@@ -730,8 +730,11 @@ canvas {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(182, 255, 134, 0.15);
 }
 
 .rlvision-launch,
@@ -996,6 +999,10 @@ canvas {
 
   .rlvision-description {
     font-size: 0.85rem;
+  }
+
+  .rlvision-actions .rlvision-launch {
+    width: 100%;
   }
 
   .rlvision-capabilities {
